@@ -1,0 +1,19 @@
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: sqlserver
+    environment:
+      SA_PASSWORD: "W654321*"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"        
+ 
+  #db-init:
+  #  image: mcr.microsoft.com/mssql-tools
+  #  container_name: db-init
+  #  depends_on:
+  #    - sqlserver
+  #  environment:
+  #    SA_PASSWORD: "W654321*"
+  #    ACCEPT_EULA: "Y"
+  #  entrypoint: /bin/bash -c "sleep 20s && /opt/mssql-tools/bin/sqlcmd -S sqlserver -U sa -P W654321* -Q 'CREATE DATABASE db_alejo;'"  
